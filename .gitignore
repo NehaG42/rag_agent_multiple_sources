@@ -1,0 +1,10 @@
+ragagent/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore key store files
+.env
+
+# Ignore .env files in the root and subdirectories
+*.env
