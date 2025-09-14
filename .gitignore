@@ -1,10 +1,392 @@
-ragagent/
+# ==========================================
+# RAG Agent - Comprehensive .gitignore
+# ==========================================
 
-# Ignore Jupyter notebook checkpoints
-.ipynb_checkpoints/
+# ---------------------------------
+# Python
+# ---------------------------------
 
-# Ignore key store files
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
 .env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
-# Ignore .env files in the root and subdirectories
-*.env
+# Specific virtual environment names used in this project
+nenv/
+ragagent/
+myenv/
+env38/
+env39/
+env310/
+env311/
+env312/
+env313/
+
+# Spyder Project Settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ---------------------------------
+# IDEs and Editors
+# ---------------------------------
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Atom
+.atom/
+
+# Eclipse
+.project
+.pydevproject
+.settings/
+
+# NetBeans
+nbproject/
+
+# JetBrains
+.idea/
+
+# ---------------------------------
+# OS Generated Files
+# ---------------------------------
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ---------------------------------
+# Database
+# ---------------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# ---------------------------------
+# Logs and Temporary Files
+# ---------------------------------
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.swp
+*.swo
+*~
+
+# ---------------------------------
+# Documentation
+# ---------------------------------
+# Sphinx
+docs/_build/
+docs/build/
+
+# MkDocs
+site/
+
+# ---------------------------------
+# Testing
+# ---------------------------------
+.coverage
+.pytest_cache/
+.tox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+htmlcov/
+
+# ---------------------------------
+# Build and Distribution
+# ---------------------------------
+build/
+dist/
+*.egg-info/
+*.egg
+
+# ---------------------------------
+# Jupyter Notebooks
+# ---------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# ---------------------------------
+# Node.js (if any frontend components)
+# ---------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# ---------------------------------
+# API Keys and Secrets
+# ---------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+secrets.json
+config/secrets.json
+
+# ---------------------------------
+# Cache and Temporary Directories
+# ---------------------------------
+.cache/
+.tmp/
+temp/
+tmp/
+
+# ---------------------------------
+# ML/AI Specific
+# ---------------------------------
+# Model files
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.model
+*.weights
+*.pb
+*.onnx
+*.tflite
+
+# Dataset files
+*.csv
+*.json
+*.parquet
+!requirements*.txt  # But keep requirements files
+
+# ---------------------------------
+# Docker
+# ---------------------------------
+.dockerignore
+Dockerfile*
+docker-compose*.yml
+.docker/
+
+# ---------------------------------
+# Git
+# ---------------------------------
+.git/
+.gitignore
+
+# ---------------------------------
+# Miscellaneous
+# ---------------------------------
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# OS crash dumps
+*.dmp
+*.stackdump
+
+# ---------------------------------
+# Project Specific
+# ---------------------------------
+# RAG Agent specific
+rag_agent/__pycache__/
+rag_agent/**/*.pyc
+rag_agent/**/*.pyo
+rag_agent/**/*.pyd
+
+# Vector store files (if using local storage)
+*.faiss
+*.index
+chroma_db/
+weaviate/
+pinecone/
+
+# API response caches
+.cache/
+*.cache
+
+# ---------------------------------
+# End of .gitignore
+# ---------------------------------
