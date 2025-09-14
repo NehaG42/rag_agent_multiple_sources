@@ -1,0 +1,93 @@
+Neha Gaonkar
+neharg0205@gmail.com | +447405376107 | https://www.linkedin.com/in/neha-gaonkar-1b4baa277/
+Manchester, UK
+
+SUMMARY
+Data Scientist with an MSc in Computer Science and 3 years of experience in data analysis. Proven ability in SQL, Python, and
+Machine Learning Workflows. Skilled in LLMs and NLP. Skilled in designing and deploying scalable machine learning solutions
+leveraging the AWS MLOps, including training, deployment and monitoring. Well versed in PyTorch, FastAPI and visualisation
+libraries.
+
+WORK EXPERIENCE
+Data Scientist - AI Model Training | Outlier.ai | November 2023 – February 2025 | Remote
+•
+Worked on 4+ LLMs that are aligned for data science applications, assessing code generation, statistical models, and
+analytical responses for correctness, maintainability, and alignment with industry standards.
+•
+Conducted RLHF-based model assessments, benchmarking and evaluating chatbot responses to enhance alignment with
+real-world data science applications with unseen data in simulated workflows.
+•
+Contributed to the design and refinement of tools, agents, tool-calling logic, and structured JSON output alignment to
+reduce hallucinations and improve performance.
+•
+Designed and executed over 50 end-to-end data science workflows to serve as reference outputs for RLHF, providing
+targeted feedback to guide model alignment and improved domain-specific accuracy.
+Data Analyst | Infosys | January 2021 - August 2022 | Pune, India
+•
+Analysed datasets weekly using advanced statistics, boosting operational efficiency by 10% and guiding strategic decisions.
+•
+Built data extraction and transformation pipelines, cutting financial reporting times by 5%.
+•
+Developed PowerBI dashboards to enhance visualisation and quicken decision-making by reducing latency by 15%.
+
+EDUCATION
+MSc in Computer Science (AI specialisation) | University of Nottingham | 2022 – 2023
+•
+
+Modules: Data Science with Machine Learning, Big Data and Technologies, Applied Statistics and Probability, Research Methods
+
+CERTIFICATIONS
+• Oracle Cloud Infrastructure 2024 Generative AI (LLM) Certified Professional – June 2024
+
+PROJECTS
+GPT from scratch (Andrej Karpathy’s GPT architecture)
+•
+•
+•
+
+Developed a 38M parameters character-level GPT Large Language Model (LLM) from scratch based on the GPT architecture by
+Andrej Karpathy, implementing foundational principles of text generation and deep learning.
+Creating training and validation datasets to prevent overfitting and ensure generalisability and implementing the model using
+PyTorch with GPU acceleration. Building embeddings and utilising SoftMax and matrix operations to optimise predictions.
+Trained the 38M model for 20000 epochs to generate text resembling a 48GB of text dataset (e.g., OpenWebText dataset) using
+backpropagation and gradient descent.
+
+Sentiment Analysis on Tweets for Financial Markets
+•
+Performed sentiment analysis on 943,672 tweets tagged #SPX500, leveraging multiple machine learning models—Linear
+Regression, Random Forest, ARIMA, CNN, and SVR—to predict stock market movements.
+•
+Achieved an R² score of 0.9345 with Linear Regression, demonstrating a strong predictive relationship between social
+sentiment and stock price fluctuations.
+•
+Conducted time-series correlation analysis by comparing aggregated sentiment scores with historical stock price
+movements, uncovering a statistically significant correlation between sentiment polarity shifts and stock performance.
+•
+Integrated time-series forecasting and predictive modeling to quantify the impact of social sentiment on market behavior,
+providing actionable insights for financial decision-making.
+Mitigating Hallucinations and Improving Context-Awareness using Agentic-RAG
+•
+Designed an agentic multi-source RAG system that routes questions to Wikipedia, arXiv, and a private FAISS-indexed
+corpus of crawled web pages.
+•
+Built the ingestion and indexing pipeline using WebBaseLoader for crawling the page, a text splitter for chunking, OpenAI
+embeddings, and a FAISS vector store.
+•
+Implemented a LangChain Tools Agent with OpenAI function calling; the model selects tools and synthesises grounded
+answers and used an OpenAI chat model configured with temperature zero to produce deterministic, context-aware
+responses while reducing hallucinations.
+•
+Implemented LLM-as-a-judge to improve factuality, completeness and accuracy and evaluate the responses.
+
+LANGUAGES AND SKILLS
+•
+•
+•
+•
+
+Programming Languages: Python, SQL
+Tools: Jupyter, Git, Docker, MongoDB, OpenAI.
+Libraries and Frameworks: PyTorch, Pandas, Seaborn, Numpy, Scikit-Learn, NLTK, Hugging Face, Langchain, OpenAI.
+Software Skills: Agile, Git, AWS SageMaker, SageMaker Pipelines, Tableau, Microsoft Excel, Power BI.
+
+

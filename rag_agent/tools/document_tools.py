@@ -3,29 +3,47 @@ from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.tools import StructuredTool
+import os
+import glob
 
 class DocumentState:
     def __init__(self):
         self.vdb = None
         self.chunk_count = 0
         self.indexed = False
+        self.sources = set()
 
+# Global document state - this persists across the session
 doc_state = DocumentState()
 
-def doc_index(files_csv: str = "./NehaGaonkarDataScientist.pdf", urls_csv: str = "", chunk_size: int = 1200, chunk_overlap: int = 200) -> str:
+def doc_index(files_csv: str = "documents/Neha_Gaonkar_Resume.txt", urls_csv: str = "", chunk_size: int = 1200, chunk_overlap: int = 200) -> str:
     """
     Ingest user-provided documents into an in-memory FAISS index.
     - files_csv: comma-separated local file paths (pdf, docx, txt, md, csv, html)
     - urls_csv: comma-separated URLs to fetch and index
     """
+    global doc_state
+
     paths = [p.strip() for p in files_csv.split(",") if p.strip()]
     urls = [u.strip() for u in urls_csv.split(",") if u.strip()]
+
+    print(f"🔍 Processing {len(paths)} files and {len(urls)} URLs...")
 
     docs = []
 
     # Load local files
     for p in paths:
         try:
+            # Convert relative paths to absolute if needed
+            if not os.path.isabs(p):
+                p = os.path.abspath(p)
+
+            print(f"📄 Loading file: {p}")
+
+            if not os.path.exists(p):
+                print(f"⚠️  File not found: {p}")
+                continue
+
             lo = None
             pl = p.lower()
             if pl.endswith(".pdf"):
@@ -39,38 +57,56 @@ def doc_index(files_csv: str = "./NehaGaonkarDataScientist.pdf", urls_csv: str =
             elif pl.endswith(".txt") or pl.endswith(".md"):
                 lo = TextLoader(p, encoding="utf-8")
             else:
-                # skip unknown types silently to avoid heavy 'unstructured' dependency
+                print(f"⚠️  Unsupported file type: {p}")
                 continue
-            docs.extend(lo.load())
-        except Exception:
+
+            loaded_docs = lo.load()
+            docs.extend(loaded_docs)
+            doc_state.sources.add(p)
+            print(f"✅ Loaded {len(loaded_docs)} documents from {p}")
+
+        except Exception as e:
+            print(f"❌ Failed to load {p}: {e}")
             continue
 
     # Load URLs
     for url in urls:
         try:
+            print(f"🌐 Loading URL: {url}")
             page_docs = WebBaseLoader(url).load()
             for pd in page_docs:
                 pd.metadata["source"] = url
             docs.extend(page_docs)
-        except Exception:
+            doc_state.sources.add(url)
+            print(f"✅ Loaded {len(page_docs)} documents from {url}")
+        except Exception as e:
+            print(f"❌ Failed to load {url}: {e}")
             continue
 
     if not docs:
-        return "No documents loaded. Provide valid paths in files_csv or URLs in urls_csv."
+        return "❌ No documents loaded. Check file paths and URLs."
+
+    print(f"📝 Total documents loaded: {len(docs)}")
 
     # Chunk and (create or update) vectorstore
     splitter = RecursiveCharacterTextSplitter(chunk_size=int(chunk_size), chunk_overlap=int(chunk_overlap))
     chunks = splitter.split_documents(docs)
 
+    print(f"✂️  Created {len(chunks)} chunks")
+
     if doc_state.vdb is None:
+        print("🏗️  Creating new FAISS index...")
         doc_state.vdb = FAISS.from_documents(chunks, OpenAIEmbeddings())
     else:
+        print("🔄 Adding to existing FAISS index...")
         doc_state.vdb.add_documents(chunks)
 
     doc_state.chunk_count += len(chunks)
     doc_state.indexed = doc_state.vdb is not None and doc_state.chunk_count > 0
 
-    return f"Indexed {len(chunks)} chunks from {len(paths)} file(s) and {len(urls)} URL(s)."
+    result = f"✅ Indexed {len(chunks)} chunks from {len(paths)} file(s) and {len(urls)} URL(s)."
+    print(result)
+    return result
 
 def doc_rag_search(query: str, k: int = 4) -> str:
     """
