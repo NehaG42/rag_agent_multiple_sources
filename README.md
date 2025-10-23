@@ -399,9 +399,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 **Email**: [your-email@example.com]
-- 🐛 **Issues**: [GitHub Issues](https://github.com/tarunk42/rag_agent_multiple_sources/issues)
-- 📖 **Documentation**: [Wiki](https://github.com/tarunk42/rag_agent_multiple_sources/wiki)
+- 📧 **Email**: [neharg0205@gmail.com]
+- 🐛 **Issues**: [GitHub](https://github.com/NehaG42/rag_agent_multiple_sources)
+
 
 ---
 
